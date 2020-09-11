@@ -77,7 +77,7 @@ def dataParse(string):
 def responseCodeChecker():
     #   Checks the server's response
     temp = sys.stdin.readline()
-    print(temp.rstrip())
+    print(temp.rstrip(), file=sys.stderr)
     code = temp[0:3]
     if(not(code == "250" or code == "354" or code == "500" or code == "501")):
         return False
@@ -87,31 +87,30 @@ def responseCodeChecker():
 def call_command(string, state):
     #   Checks to make sure file has correct From:, To: and Data parameters then prints
     isTrue = False
-    serverResponse = ""
     if(state == 0):  # State 0 = From:
         string = fromParse(string)
         print("MAIL FROM: " + string)
-        serverResponse = responseCodeChecker()
-        # print(serverResponse)
+        if(not(responseCodeChecker())):
+            return -1
         return 1
     elif(state == 1):  # State 1 = To:
         isTrue = toParse(string)
         if(isTrue == False):  # Move to state 2
             print("DATA")
-            serverResponse = responseCodeChecker()
-            # print(serverResponse)
+            if(not(responseCodeChecker())):
+                return -1
             return call_command(string, 2)
         string = toParse(string)
         print("RCPT TO: " + string)
-        serverResponse = responseCodeChecker()
-        # print(serverResponse)
+        if(not(responseCodeChecker())):
+            return -1
         return 1
     elif(state == 2):  # State 2 = Data
         isTrue = fromParse(string)
         if(isTrue):  # Move back to state 0
             print(".")
-            serverResponse = responseCodeChecker()
-            # print(serverResponse)
+            if(not(responseCodeChecker())):
+                return -1
             return call_command(string, 0)
         dataParse(string)
         return 2
@@ -121,16 +120,19 @@ def call_command(string, state):
 def main():
     #   Iterates through the lines in a forward file to process client-side
     state = 0
-    serverResponseMain = ""
     with open(sys.argv[1], 'r') as my_file:
         for line in my_file:
             if(state == 0):
                 rcptTo.clear()
                 data.clear()
             state = call_command(line.rstrip(), state)
-    print(".")
-    serverResponseMain = responseCodeChecker()
-    # print(serverResponseMain)
+            if(state == -1):
+                break
+    if(not(state == -1)):
+        print(".")
+        if(not(responseCodeChecker())):
+            return -1
+    print("QUIT")
     return False
 
 
