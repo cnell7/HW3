@@ -1,0 +1,15 @@
+Test 24 failed:
+Test Forward File: 'From: <noah@email>\nTo: <john@email>\nSample test with an error right out of the gate\n'
+Test Input Lines: '250 \n250 ok\n354 data ready\n250 ok\n'
+
+Test 29 failed: 
+Test Forward File: 'From: <noah@email>\nTo: <john@email>\nSample test\nFrom: <noah@email.com>\nTo: <john@email.com>\nsome text here\n'
+Test Input Lines: '250 ok\n250 ok\n354 data ready\n250 ok\n250 ok\n250 ok\n354\t\n'
+ 
+Test 31 failed:
+Test Forward File: 'From: <email@unc>\nTo: <unc@email>\n'
+Test Input Lines: '250 ok\n250 ok\n354 data ready\n250 ok\n'
+ 
+Test 34 failed:
+Test Forward File: 'From: <noah@unc>\nTo: <john@unc>\nsome message\nFrom: <noah@unc>\nTo: <john@unc>\n'
+Test Input Lines: '250 ok\n250 ok\n354 data\n250 ok\n250 ok\n250 ok\n354 data\n250 ok\n'
