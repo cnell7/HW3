@@ -33,9 +33,34 @@ Test 29 failed:
     '
     
 Test 31 failed:
-Test Forward File: 'From: <email@unc>\nTo: <unc@email>\n'
-Test Input Lines: '250 ok\n250 ok\n354 data ready\n250 ok\n'
+    Test Forward File: 
+    'From: <email@unc>
+    To: <unc@email>
+    '
+
+    Test Input Lines: 
+    '250 ok
+    250 ok
+    354 data ready
+    250 ok
+    '
  
 Test 34 failed:
-Test Forward File: 'From: <noah@unc>\nTo: <john@unc>\nsome message\nFrom: <noah@unc>\nTo: <john@unc>\n'
-Test Input Lines: '250 ok\n250 ok\n354 data\n250 ok\n250 ok\n250 ok\n354 data\n250 ok\n'
+    Test Forward File:
+    'From: <noah@unc>
+    To: <john@unc>
+    some message
+    From: <noah@unc>
+    To: <john@unc>
+    '
+
+    Test Input Lines: 
+    '250 ok
+    250 ok
+    354 data
+    250 ok
+    250 ok
+    250 ok
+    354 data
+    250 ok
+    '

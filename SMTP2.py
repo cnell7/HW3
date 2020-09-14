@@ -92,6 +92,9 @@ def responseCodeChecker(state):
     #   <whitespace>
     if(copy[0] == whitespace(copy)[0]):
         return False
+    copy = whitespace(copy)
+    if(not(copy[1:])):
+        return False
     #   <arbitrary-text> <CRLF>
     return True
 
@@ -140,6 +143,11 @@ def main():
             state = call_command(line, state)
             if(state == -1):
                 break
+    if(state == 1):
+        sys.stdout.write("DATA\n")
+        if(not(responseCodeChecker(2))):
+            state == 0
+
     if(not(state == -1)):  # End of file
         sys.stdout.write(".\n")
         responseCodeChecker(0)
