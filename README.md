@@ -6,6 +6,9 @@ Server side of the SMTP is now finished and this is now the working client side.
 
 -----Grammar-----
 
-<response_code> ::= <resp_number> <whitespace_> <arbitrary_text> <CRLF_>
-<resp-number> ::= “250” | “354” | “500” | “501”
-<arbitrary-text> ::= any sequence of printable characters
+<response-code_> ::= <resp-number_> <whitespace_> <arbitrary-text_> <CRLF_>
+<resp-number_> ::= “250” | “354” | “500” | “501”
+<arbitrary-text_> ::= any sequence of printable characters
+
+
+(Some of the grammar tokens are not the same as the comments in the code. This is because github is hiding the token names inside the <>. That is also why there are extra '_'.)
