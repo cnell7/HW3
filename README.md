@@ -6,7 +6,6 @@ This part of the SMTP server is finished and fully functional.
 
 -----Grammar-----
 
-<response-code> ::= <resp-number> <whitespace> <arbitrary-text> <CRLF>
-
-<resp-number> ::= “250” | “354” | “500” | “501”
-<arbitrary-text> ::= any sequence of printable characters
+#<response-code> ::= <resp-number> <whitespace> <arbitrary-text> <CRLF>
+#<resp-number> ::= “250” | “354” | “500” | “501”
+#<arbitrary-text> ::= any sequence of printable characters
