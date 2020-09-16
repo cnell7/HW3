@@ -6,6 +6,6 @@ Server side of the SMTP is now finished and this is now the working client side.
 
 -----Grammar-----
 
- <response-code> ::= <resp-number> <whitespace> <arbitrary-text> <CRLF>
+<response_code> ::= <resp-number> <whitespace> <arbitrary-text> <CRLF>
 <resp-number> ::= “250” | “354” | “500” | “501”
 <arbitrary-text> ::= any sequence of printable characters
