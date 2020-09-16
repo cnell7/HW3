@@ -7,7 +7,7 @@ Server side of the SMTP is now finished and this is now the working client side.
 -----Grammar-----
 
 <response-code_> ::= <resp-number_> <whitespace_> <arbitrary-text_> <CRLF_>
-<resp-number_> ::= “250” | “354” | “500” | “501”
+<resp_number_> ::= “250” | “354” | “500” | “501”
 <arbitrary-text_> ::= any sequence of printable characters
 
 
